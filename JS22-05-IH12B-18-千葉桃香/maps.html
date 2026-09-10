@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maps</title>
+
+    <!-- The callback parameter is required, so we use console.debug as a noop -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAKLjisxFelKwIl1_G6MiEO9-ya7Twr5s&loading=async&callback=initMap&libraries=maps,marker"></script>
+    
+    <!-- css -->
+    <link rel="stylesheet" href="./css/maps.css">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Tokumin&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="kaisei-tokumin-regular">
+
+    <div id="content">
+
+        <h1></h1>
+
+        <section class="spot">
+
+            <h2>熱田神宮</h2>
+
+            <img src="./images/atuta.jpg" alt="熱田神宮">
+
+            <p>
+                熱田神宮は、約1900年の歴史を持つ愛知県を代表する神社。<br>
+                三種の神器の一つである「草薙神剣」を祀っていることで知られている。<br>
+                全国から多くの参拝者が訪れる。<br>
+                境内は緑豊かで、歴史を感じながらゆったりと散策を楽しむことができる。
+            </p>
+
+            <div class="btn">
+                <button class="kaisei-tokumin-regular">地図</button>
+                <button class="kaisei-tokumin-regular">雨雲レーダー</button>
+            </div>
+
+            <div id="map01"></div>
+
+        </section>
+
+        <section class="spot">
+
+            <h2>大須観音</h2>
+
+            <img src="./images/osu.jpg" alt="大須観音">
+
+            <p>
+                大須観音は、正式名称を「真福寺宝生院」という歴史ある寺院。<br>
+                学業成就や家内安全などのご利益があるとされ、多くの参拝者が訪れる。<br>
+                隣接する大須商店街には飲食店や雑貨店が数多く並び、<br>
+                観光や食べ歩きを楽しめる名古屋の人気スポット。
+            </p>
+
+            <div class="btn">
+                <button class="kaisei-tokumin-regular">地図</button>
+                <button class="kaisei-tokumin-regular">雨雲レーダー</button>
+            </div>
+
+            <div id="map02"></div>
+
+        </section>
+
+        <section class="spot">
+
+            <h2>豊川稲荷</h2>
+
+            <img src="./images/toyokawa.jpg" alt="豊川稲荷">
+
+            <p>
+                豊川稲荷は、正式には「妙厳寺」という曹洞宗の寺院で、<br>
+                日本三大稲荷の一つとして知られている。<br>
+                商売繁盛や家内安全の後利益を求めて全国から多くの参拝者が訪れる。<br>
+                境内には数多くの狐像が並ぶ「霊狐塚」があり、
+                豊川稲荷を代表する見どころとなっている。
+            </p>
+
+            <div class="btn">
+                <button class="kaisei-tokumin-regular">地図</button>
+                <button class="kaisei-tokumin-regular">雨雲レーダー</button>
+            </div>
+
+            <div id="map03"></div>
+
+        </section>
+
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        
+    function initMap() {
+
+        // 熱田神宮
+        const map01 = new google.maps.Map(document.getElementById("map01"), {
+          zoom: 18,
+          center: { lat: 35.127361, lng: 136.908667 },
+          zoomControl: true,
+          mapTypeControl: true,
+          streetViewControl: false
+        });
+
+        // マーカー
+        const marker01 = new google.maps.Marker({
+          position: { lat: 35.127361, lng: 136.908667 },
+          map: map01,
+          title: "熱田神宮"
+        });
+
+        // 情報ウィンドウ（クリックで開く）
+        const infoWindow = new google.maps.InfoWindow({
+          content: '<img src="./images/atuta02.png" alt="熱田神宮"><p class="kaisei-tokumin-regular">熱田神宮</p>'
+        });
+        // マーカークリック時に情報ウィンドウを開く
+        marker01.addListener("click", () => {
+          infoWindow.open(map01, marker01);
+        });
+        // マップクリック時に情報ウィンドウを閉じる
+        map01.addListener("click", () => {
+          infoWindow.close();
+        });
+
+        // 熱田神宮
+
+        // 大須観音
+        const map02 = new google.maps.Map(document.getElementById("map02"), {
+          zoom: 18,
+          center: { lat: 35.159680, lng: 136.899397 },
+          zoomControl: true,
+          mapTypeControl: true,
+          streetViewControl: false
+        });
+
+        // マーカー
+        const marker02 = new google.maps.Marker({
+          position: { lat: 35.159680, lng: 136.899397 },
+          map: map02,
+          title: "大須観音"
+        });
+
+        // 情報ウィンドウ（クリックで開く）
+        const infoWindow02 = new google.maps.InfoWindow({
+          content: '<img src="./images/osu02.png" alt="大須観音"><p class="kaisei-tokumin-regular">大須観音</p>'
+        });
+        // マーカークリック時に情報ウィンドウを開く
+        marker02.addListener("click", () => {
+          infoWindow02.open(map02, marker02);
+        });
+        // マップクリック時に情報ウィンドウを閉じる
+        map02.addListener("click", () => {
+          infoWindow02.close();
+        });
+
+        // 大須観音
+
+        // 豊川稲荷
+        const map03 = new google.maps.Map(document.getElementById("map03"), {
+          zoom: 18,
+          center: { lat: 34.8245167, lng: 137.3920111 },
+          zoomControl: true,
+          mapTypeControl: true,
+          streetViewControl: false
+        });
+
+        // マーカー
+        const marker03 = new google.maps.Marker({
+          position: { lat: 34.8245167, lng: 137.3920111 },
+          map: map03,
+          title: "豊川稲荷"
+        });
+
+        // 情報ウィンドウ（クリックで開く）
+        const infoWindow03 = new google.maps.InfoWindow({
+          content: '<img src="./images/toyokawa02.png" alt="豊川稲荷"><p class="kaisei-tokumin-regular">豊川稲荷</p>'
+        });
+        // マーカークリック時に情報ウィンドウを開く
+        marker03.addListener("click", () => {
+          infoWindow03.open(map03, marker03);
+        });
+        // マップクリック時に情報ウィンドウを閉じる
+        map03.addListener("click", () => {
+          infoWindow03.close();
+        });
+
+        // 豊川稲荷
+
+        
+
+        // 雨雲レーダー
+        
+        // 熱田神宮
+        
+
+        // 大須観音
+
+
+        // 豊川稲荷
+
+    }
+
+    // マップの初期化を待つ
+    window.initMap = initMap;
+    // マップの初期化が完了したら、マップを表示する
+    window.addEventListener("load", () => {
+        initMap();
+    });
+
+    </script>
+    
+</body>
+
+</html>

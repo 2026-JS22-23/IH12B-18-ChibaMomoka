@@ -1,0 +1,75 @@
+
+body{
+    margin: 0;
+    background-color: rgb(120, 18, 18);
+}
+
+#content{
+    width: 1200px;
+    margin: 40px auto;
+    background-color: white;
+    box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.spot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 60px;
+    border-bottom: dashed 1px #000;
+}
+.spot:last-child{
+    border-bottom: none;
+}
+.spot h2{
+    padding: 20px 0 20px 0;
+    letter-spacing: 0.1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+.spot img{
+    width: auto;
+    height: auto;
+    /* box-shadow: 0 10px 25px rgba(0,0,0,0.4); */
+}
+.spot p{
+    margin: 30px 0;
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 0.1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+.btn{
+    display: flex;
+    padding-right: 460px;
+}
+.btn button{
+    margin: 0 20px;
+    padding: 5px 20px;
+    font-size: 14px;
+    border: 2px solid #8b0000;
+    background-color: #fff;
+    color: #8b0000;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+button:hover {
+    background-color: #8b0000;
+    color: #fff;
+}
+#map01, #map02, #map03{
+    width: 700px;
+    height: 500px;
+    margin: 20px auto 0 auto;
+}
+
+
+
+/* font */
+.kaisei-tokumin-regular {
+  font-family: "Kaisei Tokumin", serif;
+  font-weight: 400;
+  font-style: normal;
+}
